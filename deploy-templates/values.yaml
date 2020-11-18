@@ -1,0 +1,19 @@
+name: deliverymomentcrud
+namespace: ""
+cdPipelineName: ""
+cdPipelineStageName: ""
+dnsWildcard: 59ae6b648ca3437aae3a.westeurope.aksapp.io
+framework: java11
+
+database:
+  required: false
+
+
+ingress:
+  required: true
+  site: deliverymomentcrud
+  path: /api/v1/deliveryMoment-Crud-service
+
+image:
+  name: deliverymomentcrud
+  version: latest

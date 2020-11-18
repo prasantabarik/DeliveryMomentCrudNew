@@ -1,0 +1,52 @@
+[INFO ] 2020-11-13 18:46:19.161 [main] ServiceKotlinTemplateApplicationKt - Starting ServiceKotlinTemplateApplicationKt on LAPTOP-QIN81B4G with PID 12904 (I:\deliveryMoment-CRUD\target\classes started by RaghavG2213 in I:\deliveryMoment-CRUD)
+[INFO ] 2020-11-13 18:46:19.254 [main] ServiceKotlinTemplateApplicationKt - No active profile set, falling back to default profiles: default
+[INFO ] 2020-11-13 18:46:26.612 [main] ServiceKotlinTemplateApplicationKt - Started ServiceKotlinTemplateApplicationKt in 8.183 seconds (JVM running for 13.148)
+[INFO ] 2020-11-13 18:51:25.984 [main] ServiceKotlinTemplateApplicationKt - Starting ServiceKotlinTemplateApplicationKt on LAPTOP-QIN81B4G with PID 11520 (I:\deliveryMoment-CRUD\target\classes started by RaghavG2213 in I:\deliveryMoment-CRUD)
+[INFO ] 2020-11-13 18:51:26.035 [main] ServiceKotlinTemplateApplicationKt - No active profile set, falling back to default profiles: default
+[INFO ] 2020-11-13 18:51:32.377 [main] ServiceKotlinTemplateApplicationKt - Started ServiceKotlinTemplateApplicationKt in 7.281 seconds (JVM running for 10.356)
+[INFO ] 2020-11-13 18:51:36.620 [http-nio-8099-exec-3] Controller - Get All
+[ERROR] 2020-11-13 18:52:53.449 [http-nio-8099-exec-7] ExceptionHandlers - [Ljava.lang.StackTraceElement;@152caea7
+[ERROR] 2020-11-13 18:54:01.476 [http-nio-8099-exec-5] ExceptionHandlers - [Ljava.lang.StackTraceElement;@5ba53de7
+[ERROR] 2020-11-13 18:55:06.312 [http-nio-8099-exec-8] ExceptionHandlers - [Ljava.lang.StackTraceElement;@1b0aa52a
+[ERROR] 2020-11-13 18:55:38.795 [http-nio-8099-exec-2] ExceptionHandlers - [Ljava.lang.StackTraceElement;@164acad9
+[ERROR] 2020-11-13 18:56:41.562 [http-nio-8099-exec-6] ExceptionHandlers - [Ljava.lang.StackTraceElement;@2e230e8d
+[INFO ] 2020-11-13 18:57:21.875 [http-nio-8099-exec-7] Controller - Get All
+[INFO ] 2020-11-17 18:56:01.544 [main] ServiceKotlinTemplateApplicationKt - Starting ServiceKotlinTemplateApplicationKt on DESKTOP-ROUVRQG with PID 6592 (C:\Users\Smile\Desktop\workingservices\deliveryMoment-CRUD\target\classes started by Smile in C:\Users\Smile\Desktop\workingservices\deliveryMoment-CRUD)
+[INFO ] 2020-11-17 18:56:02.436 [main] ServiceKotlinTemplateApplicationKt - No active profile set, falling back to default profiles: default
+[INFO ] 2020-11-17 18:56:43.314 [main] ServiceKotlinTemplateApplicationKt - Started ServiceKotlinTemplateApplicationKt in 49.179 seconds (JVM running for 98.08)
+[ERROR] 2020-11-17 19:07:41.888 [http-nio-8099-exec-2] ExceptionHandlers - [Ljava.lang.StackTraceElement;@5858f8ea
+[ERROR] 2020-11-17 19:07:46.071 [http-nio-8099-exec-1] ExceptionHandlers - [Ljava.lang.StackTraceElement;@f55ac90
+[INFO ] 2020-11-17 19:13:14.372 [main] ServiceKotlinTemplateApplicationKt - Starting ServiceKotlinTemplateApplicationKt on DESKTOP-ROUVRQG with PID 8780 (C:\Users\Smile\Desktop\workingservices\deliveryMoment-CRUD\target\classes started by Smile in C:\Users\Smile\Desktop\workingservices\deliveryMoment-CRUD)
+[INFO ] 2020-11-17 19:13:14.456 [main] ServiceKotlinTemplateApplicationKt - No active profile set, falling back to default profiles: default
+[INFO ] 2020-11-17 19:13:31.892 [main] ServiceKotlinTemplateApplicationKt - Started ServiceKotlinTemplateApplicationKt in 18.887 seconds (JVM running for 31.718)
+[ERROR] 2020-11-17 19:13:41.223 [http-nio-8099-exec-1] ExceptionHandlers - [Ljava.lang.StackTraceElement;@29e4a155
+[INFO ] 2020-11-17 19:27:48.562 [main] ServiceKotlinTemplateApplicationKt - Starting ServiceKotlinTemplateApplicationKt on DESKTOP-ROUVRQG with PID 10420 (C:\Users\Smile\Desktop\workingservices\deliveryMoment-CRUD\target\classes started by Smile in C:\Users\Smile\Desktop\workingservices\deliveryMoment-CRUD)
+[INFO ] 2020-11-17 19:27:48.845 [main] ServiceKotlinTemplateApplicationKt - No active profile set, falling back to default profiles: default
+[INFO ] 2020-11-17 19:27:59.989 [main] ServiceKotlinTemplateApplicationKt - Started ServiceKotlinTemplateApplicationKt in 12.872 seconds (JVM running for 19.711)
+[ERROR] 2020-11-17 19:28:31.454 [http-nio-8099-exec-1] ExceptionHandlers - [Ljava.lang.StackTraceElement;@313c27cd
+[INFO ] 2020-11-17 19:29:04.012 [http-nio-8099-exec-2] Controller - Get All
+[INFO ] 2020-11-17 19:29:19.795 [http-nio-8099-exec-4] Controller - Get All
+[INFO ] 2020-11-17 19:31:21.720 [http-nio-8099-exec-6] Controller - Get All
+[INFO ] 2020-11-17 19:35:37.470 [main] ServiceKotlinTemplateApplicationKt - Starting ServiceKotlinTemplateApplicationKt on DESKTOP-ROUVRQG with PID 13756 (C:\Users\Smile\Desktop\workingservices\deliveryMoment-CRUD\target\classes started by Smile in C:\Users\Smile\Desktop\workingservices\deliveryMoment-CRUD)
+[INFO ] 2020-11-17 19:35:37.630 [main] ServiceKotlinTemplateApplicationKt - No active profile set, falling back to default profiles: default
+[INFO ] 2020-11-17 19:35:48.320 [main] ServiceKotlinTemplateApplicationKt - Started ServiceKotlinTemplateApplicationKt in 12.078 seconds (JVM running for 18.274)
+[INFO ] 2020-11-17 19:36:34.282 [http-nio-8099-exec-1] Controller - Get All
+[INFO ] 2020-11-17 19:38:06.686 [main] ServiceKotlinTemplateApplicationKt - Starting ServiceKotlinTemplateApplicationKt on DESKTOP-ROUVRQG with PID 10324 (C:\Users\Smile\Desktop\workingservices\deliveryMoment-CRUD\target\classes started by Smile in C:\Users\Smile\Desktop\workingservices\deliveryMoment-CRUD)
+[INFO ] 2020-11-17 19:38:06.787 [main] ServiceKotlinTemplateApplicationKt - No active profile set, falling back to default profiles: default
+[INFO ] 2020-11-17 19:38:19.123 [main] ServiceKotlinTemplateApplicationKt - Started ServiceKotlinTemplateApplicationKt in 14.296 seconds (JVM running for 18.623)
+[INFO ] 2020-11-17 19:40:39.150 [http-nio-8099-exec-1] Controller - Get All
+[INFO ] 2020-11-17 19:45:03.717 [main] ServiceKotlinTemplateApplicationKt - Starting ServiceKotlinTemplateApplicationKt on DESKTOP-ROUVRQG with PID 9896 (C:\Users\Smile\Desktop\workingservices\deliveryMoment-CRUD\target\classes started by Smile in C:\Users\Smile\Desktop\workingservices\deliveryMoment-CRUD)
+[INFO ] 2020-11-17 19:45:03.842 [main] ServiceKotlinTemplateApplicationKt - No active profile set, falling back to default profiles: default
+[INFO ] 2020-11-17 19:45:17.213 [main] ServiceKotlinTemplateApplicationKt - Started ServiceKotlinTemplateApplicationKt in 14.837 seconds (JVM running for 26.277)
+[INFO ] 2020-11-17 19:45:27.219 [http-nio-8099-exec-3] Controller - Get All
+[INFO ] 2020-11-17 19:50:29.556 [http-nio-8099-exec-8] Controller - Get All
+[INFO ] 2020-11-17 20:30:20.733 [main] ServiceKotlinTemplateApplicationKt - Starting ServiceKotlinTemplateApplicationKt on DESKTOP-ROUVRQG with PID 4920 (C:\Users\Smile\Desktop\workingservices\deliveryMoment-CRUD\target\classes started by Smile in C:\Users\Smile\Desktop\workingservices\deliveryMoment-CRUD)
+[INFO ] 2020-11-17 20:30:20.820 [main] ServiceKotlinTemplateApplicationKt - No active profile set, falling back to default profiles: default
+[INFO ] 2020-11-17 20:30:40.232 [main] ServiceKotlinTemplateApplicationKt - Started ServiceKotlinTemplateApplicationKt in 20.842 seconds (JVM running for 30.484)
+[INFO ] 2020-11-17 20:31:16.005 [http-nio-8099-exec-1] Controller - Get All
+[INFO ] 2020-11-17 22:14:23.004 [main] ServiceKotlinTemplateApplicationKt - Starting ServiceKotlinTemplateApplicationKt on DESKTOP-ROUVRQG with PID 1400 (C:\Users\Smile\Desktop\workingservices\deliveryMoment-CRUD\target\classes started by Smile in C:\Users\Smile\Desktop\workingservices\deliveryMoment-CRUD)
+[INFO ] 2020-11-17 22:14:23.372 [main] ServiceKotlinTemplateApplicationKt - No active profile set, falling back to default profiles: default
+[INFO ] 2020-11-17 22:14:38.114 [main] ServiceKotlinTemplateApplicationKt - Started ServiceKotlinTemplateApplicationKt in 16.429 seconds (JVM running for 26.608)
+[INFO ] 2020-11-17 22:30:50.003 [main] ServiceKotlinTemplateApplicationKt - Starting ServiceKotlinTemplateApplicationKt on DESKTOP-ROUVRQG with PID 2876 (C:\Users\Smile\Desktop\workingservices\deliveryMoment-CRUD\target\classes started by Smile in C:\Users\Smile\Desktop\workingservices\deliveryMoment-CRUD)
+[INFO ] 2020-11-17 22:30:50.264 [main] ServiceKotlinTemplateApplicationKt - No active profile set, falling back to default profiles: default
+[INFO ] 2020-11-17 22:31:15.984 [main] ServiceKotlinTemplateApplicationKt - Started ServiceKotlinTemplateApplicationKt in 28.68 seconds (JVM running for 46.287)

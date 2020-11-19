@@ -7,6 +7,7 @@ import com.tcs.service.model.Model
 import com.tcs.service.repository.Repository
 import org.apache.logging.log4j.kotlin.logger
 import org.springframework.stereotype.Service
+import org.springframework.web.bind.annotation.RequestParam
 
 
 @Service
@@ -16,31 +17,35 @@ class Service(private val repository: Repository) {
         logger.info("Before Cast")
         return Model(repository.findById(id.toInt()).get() ?: throw DataNotFoundException(ExceptionMessage.NO_DATA_FOUND))
     }
-
-
     fun get(): MutableList<DeliveryMomentModel>{
         //The below lines of code is for POC on Mongo Template
         //repository.getAllByDesc("Sample").forEach{i -> println(i.modId)}
 
-        var result = repository.findAll() ?: throw DataNotFoundException(ExceptionMessage.NO_DATA_FOUND)
-        println(result)
+        var result = repository.findAllsoftdelete() ?: throw DataNotFoundException(ExceptionMessage.NO_DATA_FOUND)
         return result.toMutableList()
     }
 
     fun getByQueryParam(storeNumber: Long?, StreamNumber: Int?,
-                        schemaName: String?, deliveryDateTime: String?, orderDateTime: String?,
-                        fillDateTime: String?, startFillTime: String?,logisticGroupNumber:Int?): MutableList<DeliveryMomentModel>{
+                        schemaName: String?,deliveryDateTime:String?,orderDateTime:String?,
+                        fillDateTime:String?,
+                        startFillTime:String?, deliveryDateFrom:String?, deliveryDateTo:String?,
+                         orderDateFrom:String?, orderDateTo:String?, fillDateFrom:String?,
+                         fillDateTo:String?, startFillTimeFrom:String?, startFillTimeTo:String?,
+                        logisticGroupNumber:Int?): MutableList<DeliveryMomentModel>{
         //The below lines of code is for POC on Mongo Template
         //to check if any of the query parameters is null
         when {
             storeNumber == null && StreamNumber == null &&
-                    schemaName == null && deliveryDateTime == null
-                    && orderDateTime == null && fillDateTime == null
-                    && logisticGroupNumber== null
-                    && startFillTime == null -> return get()
+                    schemaName == null&& deliveryDateFrom == null && orderDateFrom == null && deliveryDateFrom == null
+                    && startFillTimeTo== null && startFillTimeTo == null && deliveryDateTo == null && orderDateFrom == null
+                    && logisticGroupNumber== null && startFillTimeTo == null
+                    && orderDateTo == null && fillDateFrom == null &&
+                    fillDateTo == null && startFillTimeFrom == null -> return get()
         }
         var result = repository.findAllByQueryParams(storeNumber, StreamNumber,
-                schemaName,deliveryDateTime,orderDateTime,fillDateTime, startFillTime,logisticGroupNumber) ?: throw DataNotFoundException(ExceptionMessage.NO_DATA_FOUND)
+                schemaName,deliveryDateTime,orderDateTime,
+        fillDateTime, startFillTime,deliveryDateFrom,deliveryDateTo,orderDateFrom,orderDateTo,
+                fillDateFrom,fillDateTo,startFillTimeFrom,startFillTimeTo,logisticGroupNumber) ?: throw DataNotFoundException(ExceptionMessage.NO_DATA_FOUND)
                println(result+"service")
         return result.toMutableList()
     }
@@ -52,7 +57,9 @@ class Service(private val repository: Repository) {
 
     fun delete(id: String)
     {
-        repository.deleteById(id)
+       var model :DeliveryMomentModel = repository.findById(id)[0]
+        model.isdeleted = true
+           repository.save(model)
     }
 
 }

@@ -33,6 +33,7 @@ data class DeliveryMomentModel(
         var delivererNumber: Long?,
         var startFillTime: String?,
         var storeOrder: List<StoreOrder>?,
-        var logisticGroupExclusion: List<LogisticGroupExclusion>?
+        var logisticGroupExclusion: List<LogisticGroupExclusion>?,
+        var isdeleted:Boolean?
 
 )

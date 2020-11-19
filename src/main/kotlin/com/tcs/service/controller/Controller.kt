@@ -68,11 +68,20 @@ class Controller(private val service: Service,
             @RequestParam(required = false) orderDateTime:String?,
             @RequestParam(required = false) fillDateTime:String?,
             @RequestParam(required = false) startFillTime:String?,
+            @RequestParam(required = false) deliveryDateFrom:String?,
+            @RequestParam(required = false) deliveryDateTo:String?,
+            @RequestParam(required = false) orderDateFrom:String?,
+            @RequestParam(required = false) orderDateTo:String?,
+            @RequestParam(required = false) fillDateFrom:String?,
+            @RequestParam(required = false) fillDateTo:String?,
+            @RequestParam(required = false) startFillTimeFrom:String?,
+            @RequestParam(required = false) startFillTimeTo:String?,
             @RequestParam(required = false) logisticGroupNumber:Int?): ResponseEntity<ServiceResponse> {
         logger.info("Get All")
 
         var records = service.getByQueryParam(storeNumber, streamNumber,
-                schemaName,deliveryDateTime,orderDateTime,fillDateTime, startFillTime,logisticGroupNumber)
+                    schemaName,deliveryDateTime,orderDateTime, fillDateTime, startFillTime, deliveryDateFrom,deliveryDateTo,orderDateFrom,orderDateTo,
+                    fillDateFrom,fillDateTo,startFillTimeFrom,startFillTimeTo ,logisticGroupNumber)
 
         return ResponseEntity.ok(ServiceResponse("200",
                 "SUCCESS", records))

@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository
 
 @Repository
 interface Repository : MongoRepository<DeliveryMomentModel, Int>, CustomRepository {
-
+    fun findById(id: String) : List<DeliveryMomentModel>
     fun deleteById(id: String)
 
 }

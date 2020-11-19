@@ -50,3 +50,36 @@
 [INFO ] 2020-11-17 22:30:50.003 [main] ServiceKotlinTemplateApplicationKt - Starting ServiceKotlinTemplateApplicationKt on DESKTOP-ROUVRQG with PID 2876 (C:\Users\Smile\Desktop\workingservices\deliveryMoment-CRUD\target\classes started by Smile in C:\Users\Smile\Desktop\workingservices\deliveryMoment-CRUD)
 [INFO ] 2020-11-17 22:30:50.264 [main] ServiceKotlinTemplateApplicationKt - No active profile set, falling back to default profiles: default
 [INFO ] 2020-11-17 22:31:15.984 [main] ServiceKotlinTemplateApplicationKt - Started ServiceKotlinTemplateApplicationKt in 28.68 seconds (JVM running for 46.287)
+[INFO ] 2020-11-18 21:04:05.586 [main] ServiceKotlinTemplateApplicationKt - Starting ServiceKotlinTemplateApplicationKt on DESKTOP-ROUVRQG with PID 3224 (C:\Users\Smile\Desktop\scmmvp\DeliveryMomentCRUD\target\classes started by Smile in C:\Users\Smile\Desktop\scmmvp\DeliveryMomentCRUD)
+[INFO ] 2020-11-18 21:04:05.735 [main] ServiceKotlinTemplateApplicationKt - No active profile set, falling back to default profiles: default
+[INFO ] 2020-11-18 21:04:42.982 [main] ServiceKotlinTemplateApplicationKt - Started ServiceKotlinTemplateApplicationKt in 39.27 seconds (JVM running for 55.596)
+[INFO ] 2020-11-18 21:06:31.832 [http-nio-8095-exec-3] Controller - Get All
+[INFO ] 2020-11-18 21:08:19.509 [http-nio-8095-exec-5] Controller - Get All
+[INFO ] 2020-11-18 21:09:14.904 [http-nio-8095-exec-9] Controller - Get All
+[INFO ] 2020-11-18 21:10:47.027 [main] ServiceKotlinTemplateApplicationKt - Starting ServiceKotlinTemplateApplicationKt on DESKTOP-ROUVRQG with PID 3936 (C:\Users\Smile\Desktop\scmmvp\DeliveryMomentCRUD\target\classes started by Smile in C:\Users\Smile\Desktop\scmmvp\DeliveryMomentCRUD)
+[INFO ] 2020-11-18 21:10:47.093 [main] ServiceKotlinTemplateApplicationKt - No active profile set, falling back to default profiles: default
+[INFO ] 2020-11-18 21:11:00.694 [main] ServiceKotlinTemplateApplicationKt - Started ServiceKotlinTemplateApplicationKt in 14.614 seconds (JVM running for 20.162)
+[INFO ] 2020-11-18 21:11:22.554 [http-nio-8095-exec-1] Controller - Get All
+[INFO ] 2020-11-18 21:17:25.283 [main] ServiceKotlinTemplateApplicationKt - Starting ServiceKotlinTemplateApplicationKt on DESKTOP-ROUVRQG with PID 11448 (C:\Users\Smile\Desktop\scmmvp\DeliveryMomentCRUD\target\classes started by Smile in C:\Users\Smile\Desktop\scmmvp\DeliveryMomentCRUD)
+[INFO ] 2020-11-18 21:17:25.352 [main] ServiceKotlinTemplateApplicationKt - No active profile set, falling back to default profiles: default
+[INFO ] 2020-11-18 21:17:36.353 [main] ServiceKotlinTemplateApplicationKt - Started ServiceKotlinTemplateApplicationKt in 12.047 seconds (JVM running for 18.952)
+[INFO ] 2020-11-18 21:17:56.079 [http-nio-8095-exec-1] Controller - Get All
+[INFO ] 2020-11-18 21:24:51.806 [http-nio-8095-exec-3] Controller - Get All
+[INFO ] 2020-11-18 21:41:28.787 [http-nio-8095-exec-5] Controller - Get All
+[INFO ] 2020-11-18 21:42:08.603 [http-nio-8095-exec-9] Controller - Get All
+[INFO ] 2020-11-19 08:18:51.615 [main] ServiceKotlinTemplateApplicationKt - Starting ServiceKotlinTemplateApplicationKt on DESKTOP-ROUVRQG with PID 10172 (C:\Users\Smile\Desktop\scmmvp\DeliveryMomentCRUD\target\classes started by Smile in C:\Users\Smile\Desktop\scmmvp\DeliveryMomentCRUD)
+[INFO ] 2020-11-19 08:18:51.729 [main] ServiceKotlinTemplateApplicationKt - No active profile set, falling back to default profiles: default
+[INFO ] 2020-11-19 08:19:12.719 [main] ServiceKotlinTemplateApplicationKt - Started ServiceKotlinTemplateApplicationKt in 22.927 seconds (JVM running for 38.35)
+[INFO ] 2020-11-19 08:27:28.914 [http-nio-8095-exec-1] Controller - Get by id: 
+[INFO ] 2020-11-19 08:27:28.950 [http-nio-8095-exec-1] Service - Before Cast
+[ERROR] 2020-11-19 08:27:29.100 [http-nio-8095-exec-1] ExceptionHandlers - [Ljava.lang.StackTraceElement;@5522f912
+[INFO ] 2020-11-19 08:29:03.026 [http-nio-8095-exec-2] Controller - Get by id: 
+[INFO ] 2020-11-19 08:29:03.030 [http-nio-8095-exec-2] Service - Before Cast
+[ERROR] 2020-11-19 08:29:03.034 [http-nio-8095-exec-2] ExceptionHandlers - [Ljava.lang.StackTraceElement;@23b6769d
+[INFO ] 2020-11-19 08:29:07.102 [http-nio-8095-exec-3] Controller - Get by id: 
+[INFO ] 2020-11-19 08:29:07.105 [http-nio-8095-exec-3] Service - Before Cast
+[ERROR] 2020-11-19 08:29:07.107 [http-nio-8095-exec-3] ExceptionHandlers - [Ljava.lang.StackTraceElement;@5a8d1081
+[INFO ] 2020-11-19 08:29:07.605 [http-nio-8095-exec-4] Controller - Get by id: 
+[INFO ] 2020-11-19 08:29:07.622 [http-nio-8095-exec-4] Service - Before Cast
+[ERROR] 2020-11-19 08:29:07.625 [http-nio-8095-exec-4] ExceptionHandlers - [Ljava.lang.StackTraceElement;@35c52bbb
+[INFO ] 2020-11-19 08:36:41.956 [http-nio-8095-exec-5] Controller - Get All

@@ -31,7 +31,7 @@ class CustomRepositoryImpl(private val mongoTemplate: MongoTemplate) : CustomRep
                                       startFillTime:String?,deliveryDateFrom:String?, deliveryDateTo:String?,
                                       orderDateFrom:String?, orderDateTo:String?, fillDateFrom:String?,
                                       fillDateTo:String?, startFillTimeFrom:String?, startFillTimeTo:String?
-                                      ,logisticGroupNumber:Int?): List<DeliveryMomentModel>?{
+                                      ,logisticGroupNumber:Int?,mainDeliveryFlag: String?): List<DeliveryMomentModel>?{
 
         var queryObject = Query()
         var criteria = Criteria();
@@ -47,7 +47,6 @@ class CustomRepositoryImpl(private val mongoTemplate: MongoTemplate) : CustomRep
             var criteria1 = Criteria.where("StreamNumber").isEqualTo(StreamNumber);
             queryObject.addCriteria(criteria1);
         }
-
 
         if( schemaName != null) {
             var criteria1 = Criteria.where("schemaName").isEqualTo(schemaName);
@@ -72,48 +71,97 @@ class CustomRepositoryImpl(private val mongoTemplate: MongoTemplate) : CustomRep
             var criteria1 = Criteria.where("startFillTime").isEqualTo(startFillTime);
             queryObject.addCriteria(criteria1);
         }
-
-        if( deliveryDateFrom != null) {
+        if( deliveryDateFrom != null && deliveryDateTo != null){
+            var criteria1 = Criteria.where("deliveryDateTime").
+            gte(deliveryDateFrom).andOperator(Criteria.where("deliveryDateTime").lte(deliveryDateTo))
+            queryObject.addCriteria(criteria1);
+        }
+        if( deliveryDateFrom != null && deliveryDateTo== null) {
             var criteria1 = Criteria.where("deliveryDateTime").gte(deliveryDateFrom);
             queryObject.addCriteria(criteria1);
         }
-        if( deliveryDateTo != null) {
+        if( deliveryDateTo != null && deliveryDateFrom== null) {
             var criteria1 = Criteria.where("deliveryDateTime").lte(deliveryDateTo);
             queryObject.addCriteria(criteria1);
         }
-        if( orderDateFrom != null) {
+        if( orderDateFrom != null && orderDateTo != null){
+            var criteria1 = Criteria.where("orderDateTime").
+            gte(orderDateFrom).andOperator(Criteria.where("orderDateTime").lte(orderDateTo))
+            queryObject.addCriteria(criteria1);
+        }
+        if( orderDateFrom != null && orderDateTo == null) {
             var criteria1 = Criteria.where("orderDateTime").gte(orderDateFrom);
             queryObject.addCriteria(criteria1);
         }
 
-        if( orderDateTo != null) {
+        if( orderDateTo != null && orderDateFrom == null) {
             var criteria1 = Criteria.where("orderDateTime").lte(orderDateTo);
             queryObject.addCriteria(criteria1);
         }
-        if( fillDateFrom != null) {
+        if( fillDateFrom != null && fillDateTo != null){
+            var criteria1 = Criteria.where("fillDateTime").
+            gte(fillDateFrom).andOperator(Criteria.where("fillDateTime").lt(fillDateTo))
+            queryObject.addCriteria(criteria1);
+        }
+
+        if( fillDateFrom != null && fillDateTo == null) {
             var criteria1 = Criteria.where("fillDateTime").gte(fillDateFrom);
             queryObject.addCriteria(criteria1);
         }
-        if( fillDateTo != null) {
+        if( fillDateTo != null && fillDateFrom == null) {
             var criteria1 = Criteria.where("fillDateTime").lte(fillDateTo);
             queryObject.addCriteria(criteria1);
         }
-        if( startFillTimeFrom != null) {
+        if( startFillTimeFrom != null && startFillTimeTo != null){
+            var criteria1 = Criteria.where("startFillTime").
+            gte(startFillTimeFrom).andOperator(Criteria.where("startFillTime").lt(startFillTimeTo))
+            queryObject.addCriteria(criteria1);
+        }
+
+        if( startFillTimeFrom != null && startFillTimeTo == null) {
             var criteria1 = Criteria.where("startFillTime").gte(startFillTimeFrom);
             queryObject.addCriteria(criteria1);
         }
-        if( startFillTimeTo != null) {
+        if( startFillTimeTo != null &&  startFillTimeFrom == null) {
             var criteria1 = Criteria.where("startFillTime").lte(startFillTimeTo);
             queryObject.addCriteria(criteria1);
         }
         if(logisticGroupNumber != null){
             var criteria1 = Criteria.where("logisticGroupExclusion.logisticGroupNumber").isEqualTo(logisticGroupNumber);
         }
+        if( mainDeliveryFlag != null) {
 
-        queryObject.addCriteria(criteria);
-        println("template"+mongoTemplate.find(queryObject,
-                DeliveryMomentModel::class.java))
+            var criteria1 = Criteria.where("mainDeliveryFlag").isEqualTo("J");
+            queryObject.addCriteria(criteria1);
+        }
+         print(queryObject)
         return mongoTemplate.find(queryObject,
                 DeliveryMomentModel::class.java)
     }
+
+    override fun getbyanyparam(storeNumber: Long?, streamNumber: Int?, deliveryDateTime: String?,
+                               orderDateTime: String?, fillDateTime: String?): List<DeliveryMomentModel> {
+        var query = Query()
+
+        var criteria = Criteria()
+        criteria.andOperator(
+                Criteria.where("storeNumber").isEqualTo(storeNumber),
+                Criteria.where("streamNumber").isEqualTo(streamNumber).orOperator(
+                        Criteria.where("deliveryDateTime").isEqualTo(deliveryDateTime),
+                        Criteria.where("orderDateTime").isEqualTo(orderDateTime),
+                        Criteria.where("fillDateTime").isEqualTo(fillDateTime)
+                )
+        )
+
+        var toPrint = query.addCriteria(criteria);
+        return mongoTemplate.find(toPrint,
+                DeliveryMomentModel::class.java)
+
+
+
+
+
+    }
+
+
 }

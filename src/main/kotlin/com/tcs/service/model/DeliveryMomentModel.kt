@@ -12,8 +12,8 @@ data class DeliveryMomentModel(
         @Id
         var id: String?,
         @NotNull
-        var storeNumber: Int,
-        var streamNumber: Long?,
+        var storeNumber: Long,
+        var streamNumber: Int?,
         var deliveryStreamName: String?,
         var schemaName: String?,
         var deliveryDateTime: String?,
@@ -32,8 +32,11 @@ data class DeliveryMomentModel(
         var deliverySchemaType: Int?,
         var delivererNumber: Long?,
         var startFillTime: String?,
-        var storeOrder: List<StoreOrder>?,
+        var storeOrder: MutableList<StoreOrder>?,
         var logisticGroupExclusion: List<LogisticGroupExclusion>?,
-        var isdeleted:Boolean?
-
+        var createdBy : String?,
+        var creationDateTime: String?,
+        var updatedBy : String?,
+        var updateDateTime : String?,
+        var isdeleted:Boolean? = false
 )

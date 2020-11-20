@@ -31,7 +31,7 @@ class Service(private val repository: Repository) {
                         startFillTime:String?, deliveryDateFrom:String?, deliveryDateTo:String?,
                          orderDateFrom:String?, orderDateTo:String?, fillDateFrom:String?,
                          fillDateTo:String?, startFillTimeFrom:String?, startFillTimeTo:String?,
-                        logisticGroupNumber:Int?): MutableList<DeliveryMomentModel>{
+                        logisticGroupNumber:Int?,mainDeliveryFlag: String?): MutableList<DeliveryMomentModel>{
         //The below lines of code is for POC on Mongo Template
         //to check if any of the query parameters is null
         when {
@@ -40,12 +40,12 @@ class Service(private val repository: Repository) {
                     && startFillTimeTo== null && startFillTimeTo == null && deliveryDateTo == null && orderDateFrom == null
                     && logisticGroupNumber== null && startFillTimeTo == null
                     && orderDateTo == null && fillDateFrom == null &&
-                    fillDateTo == null && startFillTimeFrom == null -> return get()
+                    fillDateTo == null && startFillTimeFrom == null && mainDeliveryFlag == null -> return get()
         }
         var result = repository.findAllByQueryParams(storeNumber, StreamNumber,
                 schemaName,deliveryDateTime,orderDateTime,
         fillDateTime, startFillTime,deliveryDateFrom,deliveryDateTo,orderDateFrom,orderDateTo,
-                fillDateFrom,fillDateTo,startFillTimeFrom,startFillTimeTo,logisticGroupNumber) ?: throw DataNotFoundException(ExceptionMessage.NO_DATA_FOUND)
+                fillDateFrom,fillDateTo,startFillTimeFrom,startFillTimeTo,logisticGroupNumber,mainDeliveryFlag) ?: throw DataNotFoundException(ExceptionMessage.NO_DATA_FOUND)
                println(result+"service")
         return result.toMutableList()
     }
@@ -60,6 +60,13 @@ class Service(private val repository: Repository) {
        var model :DeliveryMomentModel = repository.findById(id)[0]
         model.isdeleted = true
            repository.save(model)
+    }
+
+    fun getByQueryParamanymatch(storeNumber: Long?, streamNumber: Int?, deliveryDateTime: String?, orderDateTime: String?, fillDateTime: String?): List<DeliveryMomentModel> {
+
+     return   repository.getbyanyparam(storeNumber, streamNumber,
+                deliveryDateTime,orderDateTime, fillDateTime)
+
     }
 
 }

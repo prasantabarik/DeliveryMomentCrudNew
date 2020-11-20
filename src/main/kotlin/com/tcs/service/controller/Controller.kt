@@ -76,12 +76,13 @@ class Controller(private val service: Service,
             @RequestParam(required = false) fillDateTo:String?,
             @RequestParam(required = false) startFillTimeFrom:String?,
             @RequestParam(required = false) startFillTimeTo:String?,
-            @RequestParam(required = false) logisticGroupNumber:Int?): ResponseEntity<ServiceResponse> {
+            @RequestParam(required = false) logisticGroupNumber:Int?,
+            @RequestParam(required = false) mainDeliveryFlag: String?): ResponseEntity<ServiceResponse> {
         logger.info("Get All")
 
         var records = service.getByQueryParam(storeNumber, streamNumber,
                     schemaName,deliveryDateTime,orderDateTime, fillDateTime, startFillTime, deliveryDateFrom,deliveryDateTo,orderDateFrom,orderDateTo,
-                    fillDateFrom,fillDateTo,startFillTimeFrom,startFillTimeTo ,logisticGroupNumber)
+                    fillDateFrom,fillDateTo,startFillTimeFrom,startFillTimeTo ,logisticGroupNumber, mainDeliveryFlag)
 
         return ResponseEntity.ok(ServiceResponse("200",
                 "SUCCESS", records))
@@ -90,6 +91,28 @@ class Controller(private val service: Service,
     /**
      * This is a sample of the GET Endpoint
      */
+    @Operation(summary = OPENAPI_GET_DEF, description = OPENAPI_GET_DEF, tags = [API_TAG_NAME])
+    @ApiResponses(value = [
+        ApiResponse(responseCode = "200", description = DATA_FOUND, content = [
+            (Content(mediaType = MEDIA_TYPE, array = (
+                    ArraySchema(schema = Schema(implementation = DeliveryMomentModel::class)))))]),
+        ApiResponse(responseCode = "400", description = BAD_REQUEST, content = [Content()]),
+        ApiResponse(responseCode = "404", description = NO_DATA_FOUND, content = [Content()])]
+    )
+    @RequestMapping(value = ["/deliverymomentunique"], method = [RequestMethod.GET], produces = [MediaType.APPLICATION_JSON_VALUE])
+    fun getfordelmoment(@RequestParam(required = false) storeNumber:Long?,
+            @RequestParam(required = false) streamNumber:Int?,
+            @RequestParam(required = false) deliveryDateTime:String?,
+            @RequestParam(required = false) orderDateTime:String?,
+            @RequestParam(required = false) fillDateTime:String?): ResponseEntity<ServiceResponse> {
+        logger.info("Get All")
+
+        var records = service.getByQueryParamanymatch(storeNumber, streamNumber,
+                deliveryDateTime,orderDateTime, fillDateTime)
+
+        return ResponseEntity.ok(ServiceResponse("200",
+                "SUCCESS", records))
+    }
     @Operation(summary = OPENAPI_GET_BY_ID_DEF, description = OPENAPI_GET_BY_ID_DEF, tags = [API_TAG_NAME])
     @ApiResponses(value = [
         ApiResponse(responseCode = "200", description = DATA_FOUND, content = [Content(schema = Schema(implementation = ServiceResponse::class))]),

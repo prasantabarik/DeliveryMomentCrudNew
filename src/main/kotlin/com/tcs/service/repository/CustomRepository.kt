@@ -13,5 +13,11 @@ interface CustomRepository {
                              startFillTime:String?,deliveryDateFrom:String?, deliveryDateTo:String?,
                              orderDateFrom:String?, orderDateTo:String?, fillDateFrom:String?,
                              fillDateTo:String?, startFillTimeFrom:String?, startFillTimeTo:String?
-                             ,logisticGroupNumber:Int?): List<DeliveryMomentModel>?
+                             ,logisticGroupNumber:Int?,mainDeliveryFlag: String?): List<DeliveryMomentModel>?
+
+    fun getbyanyparam(storeNumber: Long?, streamNumber: Int?,
+                      deliveryDateTime: String?, orderDateTime: String?
+                      , fillDateTime: String?): List<DeliveryMomentModel>
+
+
 }

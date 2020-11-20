@@ -83,3 +83,9 @@
 [INFO ] 2020-11-19 08:29:07.622 [http-nio-8095-exec-4] Service - Before Cast
 [ERROR] 2020-11-19 08:29:07.625 [http-nio-8095-exec-4] ExceptionHandlers - [Ljava.lang.StackTraceElement;@35c52bbb
 [INFO ] 2020-11-19 08:36:41.956 [http-nio-8095-exec-5] Controller - Get All
+[INFO ] 2020-11-20 19:06:36.324 [main] ServiceKotlinTemplateApplicationKt - Starting ServiceKotlinTemplateApplicationKt on LAPTOP-QIN81B4G with PID 20696 (C:\Users\RaghavG2213\Downloads\DeliveryMomentCRUD\target\classes started by RaghavG2213 in C:\Users\RaghavG2213\Downloads\DeliveryMomentCRUD)
+[INFO ] 2020-11-20 19:06:36.394 [main] ServiceKotlinTemplateApplicationKt - No active profile set, falling back to default profiles: default
+[INFO ] 2020-11-20 19:06:47.928 [main] ServiceKotlinTemplateApplicationKt - Started ServiceKotlinTemplateApplicationKt in 12.554 seconds (JVM running for 17.306)
+[INFO ] 2020-11-20 19:07:18.284 [http-nio-8080-exec-1] Controller - Get All
+[INFO ] 2020-11-20 19:07:32.411 [http-nio-8080-exec-3] Controller - Get All
+[INFO ] 2020-11-20 19:08:31.551 [http-nio-8080-exec-4] Controller - Get All

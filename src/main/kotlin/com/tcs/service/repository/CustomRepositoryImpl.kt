@@ -76,11 +76,11 @@ class CustomRepositoryImpl(private val mongoTemplate: MongoTemplate) : CustomRep
             gte(deliveryDateFrom).andOperator(Criteria.where("deliveryDateTime").lte(deliveryDateTo))
             queryObject.addCriteria(criteria1);
         }
-        if( deliveryDateFrom != null && deliveryDateTo== null) {
+        if( deliveryDateFrom != null && deliveryDateTo == null) {
             var criteria1 = Criteria.where("deliveryDateTime").gte(deliveryDateFrom);
             queryObject.addCriteria(criteria1);
         }
-        if( deliveryDateTo != null && deliveryDateFrom== null) {
+        if( deliveryDateTo != null && deliveryDateFrom == null) {
             var criteria1 = Criteria.where("deliveryDateTime").lte(deliveryDateTo);
             queryObject.addCriteria(criteria1);
         }

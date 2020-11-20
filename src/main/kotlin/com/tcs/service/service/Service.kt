@@ -36,11 +36,10 @@ class Service(private val repository: Repository) {
         //to check if any of the query parameters is null
         when {
             storeNumber == null && StreamNumber == null &&
-                    schemaName == null&& deliveryDateFrom == null && orderDateFrom == null && deliveryDateFrom == null
-                    && startFillTimeTo== null && startFillTimeTo == null && deliveryDateTo == null && orderDateFrom == null
-                    && logisticGroupNumber== null && startFillTimeTo == null
-                    && orderDateTo == null && fillDateFrom == null &&
-                    fillDateTo == null && startFillTimeFrom == null && mainDeliveryFlag == null -> return get()
+                    schemaName == null && deliveryDateTime == null && deliveryDateFrom == null && deliveryDateTo == null
+                    && startFillTime == null && startFillTimeFrom == null && startFillTimeTo == null && orderDateTime == null && orderDateFrom == null && orderDateTo == null
+                    && logisticGroupNumber== null && fillDateTime == null && fillDateFrom == null && fillDateTo == null
+                    && mainDeliveryFlag == null -> return get()
         }
         var result = repository.findAllByQueryParams(storeNumber, StreamNumber,
                 schemaName,deliveryDateTime,orderDateTime,

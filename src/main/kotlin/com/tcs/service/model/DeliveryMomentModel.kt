@@ -7,7 +7,7 @@ import javax.validation.constraints.Max
 import javax.validation.constraints.Min
 import javax.validation.constraints.Size
 
-@Document(collection = "deliveryMoment")
+@Document(collection = "delivery-moment\u200b")
 data class DeliveryMomentModel(
         @Id
         var id: String?,

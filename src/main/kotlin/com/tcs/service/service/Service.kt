@@ -7,8 +7,6 @@ import com.tcs.service.model.Model
 import com.tcs.service.repository.Repository
 import org.apache.logging.log4j.kotlin.logger
 import org.springframework.stereotype.Service
-import org.springframework.web.bind.annotation.RequestParam
-
 
 @Service
 class Service(private val repository: Repository) {
@@ -21,7 +19,7 @@ class Service(private val repository: Repository) {
         //The below lines of code is for POC on Mongo Template
         //repository.getAllByDesc("Sample").forEach{i -> println(i.modId)}
 
-        var result = repository.findAllsoftdelete() ?: throw DataNotFoundException(ExceptionMessage.NO_DATA_FOUND)
+        val result = repository.findAllsoftdelete() ?: throw DataNotFoundException(ExceptionMessage.NO_DATA_FOUND)
         return result.toMutableList()
     }
 
@@ -41,7 +39,7 @@ class Service(private val repository: Repository) {
                     && logisticGroupNumber== null && fillDateTime == null && fillDateFrom == null && fillDateTo == null
                     && mainDeliveryFlag == null -> return get()
         }
-        var result = repository.findAllByQueryParams(storeNumber, StreamNumber,
+        val result = repository.findAllByQueryParams(storeNumber, StreamNumber,
                 schemaName,deliveryDateTime,orderDateTime,
         fillDateTime, startFillTime,deliveryDateFrom,deliveryDateTo,orderDateFrom,orderDateTo,
                 fillDateFrom,fillDateTo,startFillTimeFrom,startFillTimeTo,logisticGroupNumber,mainDeliveryFlag) ?: throw DataNotFoundException(ExceptionMessage.NO_DATA_FOUND)
@@ -56,7 +54,7 @@ class Service(private val repository: Repository) {
 
     fun delete(id: String)
     {
-       var model :DeliveryMomentModel = repository.findById(id)[0]
+       val model :DeliveryMomentModel = repository.findById(id)[0]
         model.isdeleted = true
            repository.save(model)
     }

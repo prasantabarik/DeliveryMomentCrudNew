@@ -1,6 +1,5 @@
 package com.tcs.service.controller
 
-import com.microsoft.applicationinsights.TelemetryClient
 import com.tcs.service.constant.ExceptionMessage.BAD_REQUEST
 import com.tcs.service.constant.ExceptionMessage.NO_DATA_FOUND
 import com.tcs.service.constant.ServiceLabels.API_TAG_DESC
@@ -29,7 +28,6 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse
 import io.swagger.v3.oas.annotations.responses.ApiResponses
 import io.swagger.v3.oas.annotations.tags.Tag
 import org.apache.logging.log4j.kotlin.logger
-import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.MediaType
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
@@ -46,8 +44,8 @@ class Controller(private val service: Service,
     /**
      * TelemetryClient is responsible for sending events to App Insights
      */
-    @Autowired
-    lateinit var telemetryClient: TelemetryClient
+//    @Autowired
+//    lateinit var telemetryClient: TelemetryClient
 
     /**
      * This is a sample of the GET Endpoint

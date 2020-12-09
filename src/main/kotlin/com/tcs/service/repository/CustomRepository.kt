@@ -5,7 +5,7 @@ import com.tcs.service.model.LogisticGroupExclusion
 
 interface CustomRepository {
 
-    fun getAllByDesc(modDesc: String): List<DeliveryMomentModel>
+    fun getById(id: String?): List<DeliveryMomentModel>
     fun findAllsoftdelete() : List<DeliveryMomentModel>
     fun findAllByQueryParams(storeNumber: Long?, StreamNumber: Int?,
                              schemaName: String?,deliveryDateTime:String?,orderDateTime:String?,

@@ -1,5 +1,6 @@
 package com.tcs.service.service
 
+import com.tcs.service.configs.DataBaseConnectionConfig
 import com.tcs.service.constant.ExceptionMessage
 import com.tcs.service.error.customexception.DataNotFoundException
 import com.tcs.service.model.DeliveryMomentModel
@@ -49,14 +50,18 @@ class Service(private val repository: Repository) {
 
     fun save(model: DeliveryMomentModel)
     {
-        repository.save(model)
+//        repository.save(model)
+        DataBaseConnectionConfig().mongoTemplate()?.save(model)
+
     }
 
     fun delete(id: String)
     {
-       val model :DeliveryMomentModel = repository.findById(id)[0]
+//       val model :DeliveryMomentModel = repository.findById(id)[0]
+        val model :DeliveryMomentModel = repository.getById(id)[0]
         model.isdeleted = true
-           repository.save(model)
+//           repository.save(model)
+        DataBaseConnectionConfig().mongoTemplate()?.save(model)
     }
 
     fun getByQueryParamanymatch(storeNumber: Long?, streamNumber: Int?, deliveryDateTime: String?, orderDateTime: String?, fillDateTime: String?): List<DeliveryMomentModel> {

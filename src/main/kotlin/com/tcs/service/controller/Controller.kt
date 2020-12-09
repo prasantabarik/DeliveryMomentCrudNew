@@ -1,5 +1,6 @@
 package com.tcs.service.controller
 
+import com.tcs.service.configs.DataBaseConnectionConfig
 import com.tcs.service.constant.ExceptionMessage.BAD_REQUEST
 import com.tcs.service.constant.ExceptionMessage.NO_DATA_FOUND
 import com.tcs.service.constant.ServiceLabels.API_TAG_DESC
@@ -28,6 +29,12 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse
 import io.swagger.v3.oas.annotations.responses.ApiResponses
 import io.swagger.v3.oas.annotations.tags.Tag
 import org.apache.logging.log4j.kotlin.logger
+import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.data.mongodb.core.MongoTemplate
+//import org.springframework.data.mongodb.core.MongoTemplate
+import org.springframework.data.mongodb.core.query.Criteria
+import org.springframework.data.mongodb.core.query.Query
+import org.springframework.data.mongodb.core.query.isEqualTo
 import org.springframework.http.MediaType
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
@@ -37,7 +44,7 @@ import javax.validation.Valid
 @RequestMapping(BASE_URI)
 @Tag(name = API_TAG_NAME, description = API_TAG_DESC)
 class Controller(private val service: Service,
-                    private val validator: BaseValidator) {
+                    private val validator: BaseValidator, private val mongoTemplate: MongoTemplate) {
 
     val logger = logger()
 
@@ -47,6 +54,19 @@ class Controller(private val service: Service,
 //    @Autowired
 //    lateinit var telemetryClient: TelemetryClient
 
+    @RequestMapping("/getDapr", method = [RequestMethod.GET])
+    fun getFromDapr(): MutableList<DeliveryMomentModel>? {
+
+        logger.info("Get Dapr secret $mongoTemplate")
+
+        val query = Query()
+        query.addCriteria(Criteria.where("id").isEqualTo("70052020-11-211"))
+
+//        return mongoTemplate.find(query, DeliveryMomentModel::class.java)
+
+        return DataBaseConnectionConfig().mongoTemplate()?.find(query, DeliveryMomentModel::class.java)
+
+    }
     /**
      * This is a sample of the GET Endpoint
      */

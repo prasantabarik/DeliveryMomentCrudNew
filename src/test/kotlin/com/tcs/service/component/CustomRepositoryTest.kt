@@ -49,12 +49,6 @@ class CustomRepositoryTest {
 
     }
 
-
-    @Test
-    fun `getAllByDesc`() {
-        assert(customRepository.getAllByDesc(String()) is List<DeliveryMomentModel>)
-    }
-
     @Test
     fun `findAllsoftdelete`() {
         assert(customRepository.findAllsoftdelete() is List<DeliveryMomentModel>)

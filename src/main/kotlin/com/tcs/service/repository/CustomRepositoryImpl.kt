@@ -1,6 +1,8 @@
 package com.tcs.service.repository
 
+import com.tcs.service.configs.DataBaseConnectionConfig
 import com.tcs.service.model.DeliveryMomentModel
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.data.mongodb.core.MongoTemplate
 import org.springframework.data.mongodb.core.query.Criteria
 import org.springframework.data.mongodb.core.query.Query
@@ -10,17 +12,14 @@ import org.springframework.stereotype.Repository
 @Repository
 class CustomRepositoryImpl(private val mongoTemplate: MongoTemplate) : CustomRepository{
 
+//    private val mongoTemplate: MongoTemplate = DataBaseConnectionConfig().mongoTemplate()
 
-    override fun getAllByDesc(modDesc: String): List<DeliveryMomentModel>{
-        return mongoTemplate.find(Query(Criteria.where("modDesc").`is`(modDesc)),
-        DeliveryMomentModel::class.java)
-    }
     override fun findAllsoftdelete():MutableList<DeliveryMomentModel>{
         val queryObject = Query()
         val criteria1 = Criteria.where("isdeleted").isEqualTo(false)
         queryObject.addCriteria(criteria1)
-        return mongoTemplate.find(queryObject,
-                DeliveryMomentModel::class.java)
+        return DataBaseConnectionConfig().mongoTemplate()?.find(queryObject, DeliveryMomentModel::class.java)
+//        return mongoTemplate.find(queryObject,DeliveryMomentModel::class.java)
 
     }
 
@@ -133,8 +132,9 @@ class CustomRepositoryImpl(private val mongoTemplate: MongoTemplate) : CustomRep
             queryObject.addCriteria(criteria1)
         }
          print(queryObject)
-        return mongoTemplate.find(queryObject,
-                DeliveryMomentModel::class.java)
+
+        return DataBaseConnectionConfig().mongoTemplate()?.find(queryObject, DeliveryMomentModel::class.java)
+//        return mongoTemplate.find(queryObject,DeliveryMomentModel::class.java)
     }
 
     override fun getbyanyparam(storeNumber: Long?, streamNumber: Int?, deliveryDateTime: String?,
@@ -152,11 +152,24 @@ class CustomRepositoryImpl(private val mongoTemplate: MongoTemplate) : CustomRep
         )
 
         val toPrint = query.addCriteria(criteria)
-        return mongoTemplate.find(toPrint,
-                DeliveryMomentModel::class.java)
+
+        return DataBaseConnectionConfig().mongoTemplate()?.find(toPrint, DeliveryMomentModel::class.java)
+//        return mongoTemplate.find(toPrint,DeliveryMomentModel::class.java)
 
 
+    }
 
+    override fun getById(id: String?): List<DeliveryMomentModel> {
+        val query = Query()
+
+//        val criteria = Criteria()
+
+//        query.addCriteria(Criteria.where("id").isEqualTo(id))
+
+        val toPrint = query.addCriteria(Criteria.where("id").isEqualTo(id))
+
+        return DataBaseConnectionConfig().mongoTemplate()?.find(toPrint, DeliveryMomentModel::class.java)
+//        return mongoTemplate.find(toPrint,DeliveryMomentModel::class.java)
 
 
     }

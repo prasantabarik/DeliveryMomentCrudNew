@@ -1,4 +1,4 @@
-name: deliverymomentcrud
+name: delmocrudnew
 namespace: ""
 cdPipelineName: ""
 cdPipelineStageName: ""
@@ -11,9 +11,9 @@ database:
 
 ingress:
   required: true
-  site: deliverymomentcrud
+  site: delmocrudnew
   path: /api/v1/deliveryMoment-Crud-service
 
 image:
-  name: deliverymomentcrud
+  name: delmocrudnew
   version: latest

@@ -63,8 +63,10 @@ class Controller(private val service: Service,
         query.addCriteria(Criteria.where("id").isEqualTo("70052020-11-211"))
 
 //        return mongoTemplate.find(query, DeliveryMomentModel::class.java)
+        val delMoment = DataBaseConnectionConfig().mongoTemplate()?.find(query, DeliveryMomentModel::class.java)
+        DataBaseConnectionConfig().mongo()?.close()
 
-        return DataBaseConnectionConfig().mongoTemplate()?.find(query, DeliveryMomentModel::class.java)
+        return delMoment
 
     }
     /**

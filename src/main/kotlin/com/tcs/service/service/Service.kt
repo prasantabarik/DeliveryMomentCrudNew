@@ -53,6 +53,8 @@ class Service(private val repository: Repository) {
 //        repository.save(model)
         DataBaseConnectionConfig().mongoTemplate()?.save(model)
 
+        DataBaseConnectionConfig().mongo()?.close()
+
     }
 
     fun delete(id: String)
@@ -62,6 +64,7 @@ class Service(private val repository: Repository) {
         model.isdeleted = true
 //           repository.save(model)
         DataBaseConnectionConfig().mongoTemplate()?.save(model)
+        DataBaseConnectionConfig().mongo()?.close()
     }
 
     fun getByQueryParamanymatch(storeNumber: Long?, streamNumber: Int?, deliveryDateTime: String?, orderDateTime: String?, fillDateTime: String?): List<DeliveryMomentModel> {

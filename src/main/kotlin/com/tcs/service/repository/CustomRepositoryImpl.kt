@@ -18,7 +18,11 @@ class CustomRepositoryImpl(private val mongoTemplate: MongoTemplate) : CustomRep
         val queryObject = Query()
         val criteria1 = Criteria.where("isdeleted").isEqualTo(false)
         queryObject.addCriteria(criteria1)
-        return DataBaseConnectionConfig().mongoTemplate()?.find(queryObject, DeliveryMomentModel::class.java)
+
+        val delMoment = DataBaseConnectionConfig().mongoTemplate()?.find(queryObject, DeliveryMomentModel::class.java)
+        DataBaseConnectionConfig().mongo()?.close()
+
+        return delMoment
 //        return mongoTemplate.find(queryObject,DeliveryMomentModel::class.java)
 
     }
@@ -133,7 +137,10 @@ class CustomRepositoryImpl(private val mongoTemplate: MongoTemplate) : CustomRep
         }
          print(queryObject)
 
-        return DataBaseConnectionConfig().mongoTemplate()?.find(queryObject, DeliveryMomentModel::class.java)
+        val delMoment = DataBaseConnectionConfig().mongoTemplate()?.find(queryObject, DeliveryMomentModel::class.java)
+        DataBaseConnectionConfig().mongo()?.close()
+
+        return delMoment
 //        return mongoTemplate.find(queryObject,DeliveryMomentModel::class.java)
     }
 
@@ -152,8 +159,10 @@ class CustomRepositoryImpl(private val mongoTemplate: MongoTemplate) : CustomRep
         )
 
         val toPrint = query.addCriteria(criteria)
+        val delMoment = DataBaseConnectionConfig().mongoTemplate()?.find(toPrint, DeliveryMomentModel::class.java)
+        DataBaseConnectionConfig().mongo()?.close()
 
-        return DataBaseConnectionConfig().mongoTemplate()?.find(toPrint, DeliveryMomentModel::class.java)
+        return delMoment
 //        return mongoTemplate.find(toPrint,DeliveryMomentModel::class.java)
 
 
@@ -167,8 +176,10 @@ class CustomRepositoryImpl(private val mongoTemplate: MongoTemplate) : CustomRep
 //        query.addCriteria(Criteria.where("id").isEqualTo(id))
 
         val toPrint = query.addCriteria(Criteria.where("id").isEqualTo(id))
+        val delMoment = DataBaseConnectionConfig().mongoTemplate()?.find(toPrint, DeliveryMomentModel::class.java)
+        DataBaseConnectionConfig().mongo()?.close()
 
-        return DataBaseConnectionConfig().mongoTemplate()?.find(toPrint, DeliveryMomentModel::class.java)
+        return delMoment
 //        return mongoTemplate.find(toPrint,DeliveryMomentModel::class.java)
 
 

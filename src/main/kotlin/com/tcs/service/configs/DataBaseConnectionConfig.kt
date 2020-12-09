@@ -32,7 +32,6 @@ class DataBaseConnectionConfig {
 
     @Bean
     fun mongoTemplate(): MongoTemplate {
-        println("I AM CREATING A BEAN!!!")
 
         return MongoTemplate(mongo()!!, Utility.getUtilitySecret("azurekeyvault", "deliverycruddb").toString())
     }

@@ -16,6 +16,9 @@ object URLPath {
     const val PUT_RESPONSE_JSON_PATH = "./src/test/resources/contracts/jsons/putDeliveryMoment.json"
     const val DEL_RESPONSE_JSON_PATH = "./src/test/resources/contracts/jsons/delDeliveryMoment.json"
     const val ENTITY_RESPONSE_JSON_PATH = "./src/test/resources/contracts/jsons/postJsonEntity.json"
+    const val SECRET_STORE = "keyvault"
+    const val SECRET_KEY1 = "deliverymomentdbapi"
+    const val SECRET_KEY2 = "deliverycruddb"
 
 
 

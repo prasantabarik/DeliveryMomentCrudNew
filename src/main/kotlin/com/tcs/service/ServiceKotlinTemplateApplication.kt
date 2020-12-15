@@ -13,5 +13,6 @@ class ServiceKotlinTemplateApplication
 fun main(args: Array<String>) {
 
     runApplication<ServiceKotlinTemplateApplication>(*args)
+//    DaprApplication.start(port);
 
 }

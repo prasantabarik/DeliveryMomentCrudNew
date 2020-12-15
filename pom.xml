@@ -43,6 +43,7 @@
     </repositories>
 
     <dependencies>
+
         <dependency>
             <groupId>io.dapr</groupId>
             <artifactId>dapr-sdk</artifactId>

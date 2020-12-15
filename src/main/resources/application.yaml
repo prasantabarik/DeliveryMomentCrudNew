@@ -37,3 +37,6 @@ service:
     get-model-url: "http://localhost:8097/servicetemplate/api/v1/getModel"
   test-data:
     id: "1"
+
+secretstore: "azurekeyvault"
+secretkey: "deliverymomentdbapi"

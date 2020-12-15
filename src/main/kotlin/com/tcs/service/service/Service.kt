@@ -44,7 +44,7 @@ class Service(private val repository: Repository) {
                 schemaName,deliveryDateTime,orderDateTime,
         fillDateTime, startFillTime,deliveryDateFrom,deliveryDateTo,orderDateFrom,orderDateTo,
                 fillDateFrom,fillDateTo,startFillTimeFrom,startFillTimeTo,logisticGroupNumber,mainDeliveryFlag) ?: throw DataNotFoundException(ExceptionMessage.NO_DATA_FOUND)
-               println(result+"service")
+
         return result.toMutableList()
     }
 

@@ -21,6 +21,7 @@ import com.tcs.service.model.Model
 import com.tcs.service.model.ServiceResponse
 import com.tcs.service.service.Service
 import com.tcs.service.validator.BaseValidator
+import io.swagger.v3.core.util.Json
 import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.media.ArraySchema
 import io.swagger.v3.oas.annotations.media.Content
@@ -49,27 +50,6 @@ class Controller(private val service: Service,
     val logger = logger()
 
     /**
-     * TelemetryClient is responsible for sending events to App Insights
-     */
-//    @Autowired
-//    lateinit var telemetryClient: TelemetryClient
-
-    @RequestMapping("/getDapr", method = [RequestMethod.GET])
-    fun getFromDapr(): MutableList<DeliveryMomentModel>? {
-
-        logger.info("Get Dapr secret $mongoTemplate")
-
-        val query = Query()
-        query.addCriteria(Criteria.where("id").isEqualTo("70052020-11-211"))
-
-//        return mongoTemplate.find(query, DeliveryMomentModel::class.java)
-        val delMoment = DataBaseConnectionConfig().mongoTemplate()?.find(query, DeliveryMomentModel::class.java)
-        DataBaseConnectionConfig().mongo()?.close()
-
-        return delMoment
-
-    }
-    /**
      * This is a sample of the GET Endpoint
      */
     @Operation(summary = OPENAPI_GET_DEF, description = OPENAPI_GET_DEF, tags = [API_TAG_NAME])
@@ -97,15 +77,15 @@ class Controller(private val service: Service,
             @RequestParam(required = false) startFillTimeFrom:String?,
             @RequestParam(required = false) startFillTimeTo:String?,
             @RequestParam(required = false) logisticGroupNumber:Int?,
-            @RequestParam(required = false) mainDeliveryFlag: String?): ResponseEntity<ServiceResponse> {
+            @RequestParam(required = false) mainDeliveryFlag: String?): MutableList<DeliveryMomentModel> {
         logger.info("Get All")
-
+        println(storeNumber)
         var records = service.getByQueryParam(storeNumber, streamNumber,
                     schemaName,deliveryDateTime,orderDateTime, fillDateTime, startFillTime, deliveryDateFrom,deliveryDateTo,orderDateFrom,orderDateTo,
                     fillDateFrom,fillDateTo,startFillTimeFrom,startFillTimeTo ,logisticGroupNumber, mainDeliveryFlag)
 
-        return ResponseEntity.ok(ServiceResponse("200",
-                "SUCCESS", records))
+
+        return records
     }
 
     /**
@@ -124,14 +104,16 @@ class Controller(private val service: Service,
             @RequestParam(required = false) streamNumber:Int?,
             @RequestParam(required = false) deliveryDateTime:String?,
             @RequestParam(required = false) orderDateTime:String?,
-            @RequestParam(required = false) fillDateTime:String?): ResponseEntity<ServiceResponse> {
+            @RequestParam(required = false) fillDateTime:String?): List<DeliveryMomentModel> {
         logger.info("Get All")
 
         var records = service.getByQueryParamanymatch(storeNumber, streamNumber,
                 deliveryDateTime,orderDateTime, fillDateTime)
 
-        return ResponseEntity.ok(ServiceResponse("200",
-                "SUCCESS", records))
+//        return ResponseEntity.ok(ServiceResponse("200",
+//                "SUCCESS", records))
+
+        return records
     }
     @Operation(summary = OPENAPI_GET_BY_ID_DEF, description = OPENAPI_GET_BY_ID_DEF, tags = [API_TAG_NAME])
     @ApiResponses(value = [
@@ -159,9 +141,12 @@ class Controller(private val service: Service,
     )
     @RequestMapping(value = [POST_PUT_DELETE_URI], method = [RequestMethod.POST], produces = [MediaType.APPLICATION_JSON_VALUE])
     fun post(@RequestBody @Valid model: DeliveryMomentModel): ResponseEntity<ServiceResponse> {
+        println("MODEL")
+        println(model)
         service.save(model)
         return ResponseEntity.ok(ServiceResponse("200",
                 "SUCCESS", "Data Successfully Inserted"))
+//        return 1
     }
 
 
@@ -189,6 +174,7 @@ class Controller(private val service: Service,
     )
     @RequestMapping(value = [GET_BY_ID_URI] ,method = [RequestMethod.DELETE], produces = [MediaType.APPLICATION_JSON_VALUE])
     fun delete(@PathVariable id: String): ResponseEntity<ServiceResponse> {
+        println(id)
         service.delete(id)
         return ResponseEntity.ok(ServiceResponse("200",
                 "SUCCESS", "Data Successfully Deleted"))

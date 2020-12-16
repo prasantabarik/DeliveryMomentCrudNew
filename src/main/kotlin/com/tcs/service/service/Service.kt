@@ -14,13 +14,12 @@ class Service(private val repository: Repository) {
     val logger = logger()
     fun getById(id: String): Model {
         logger.info("Before Cast")
-        return Model(repository.findById(id.toInt()).get() ?: throw DataNotFoundException(ExceptionMessage.NO_DATA_FOUND))
+        return Model(repository.findById(id.toInt()).get())
     }
     fun get(): MutableList<DeliveryMomentModel>{
-        //The below lines of code is for POC on Mongo Template
-        //repository.getAllByDesc("Sample").forEach{i -> println(i.modId)}
 
-        val result = repository.findAllsoftdelete() ?: throw DataNotFoundException(ExceptionMessage.NO_DATA_FOUND)
+
+        val result = repository.findAllsoftdelete()
         return result.toMutableList()
     }
 
@@ -31,8 +30,7 @@ class Service(private val repository: Repository) {
                          orderDateFrom:String?, orderDateTo:String?, fillDateFrom:String?,
                          fillDateTo:String?, startFillTimeFrom:String?, startFillTimeTo:String?,
                         logisticGroupNumber:Int?,mainDeliveryFlag: String?): MutableList<DeliveryMomentModel>{
-        //The below lines of code is for POC on Mongo Template
-        //to check if any of the query parameters is null
+
         when {
             storeNumber == null && StreamNumber == null &&
                     schemaName == null && deliveryDateTime == null && deliveryDateFrom == null && deliveryDateTo == null
@@ -50,21 +48,18 @@ class Service(private val repository: Repository) {
 
     fun save(model: DeliveryMomentModel)
     {
-//        repository.save(model)
-        DataBaseConnectionConfig().mongoTemplate()?.save(model)
-
-        DataBaseConnectionConfig().mongo()?.close()
+        DataBaseConnectionConfig.mongoTemplate().save(model)
 
     }
 
     fun delete(id: String)
     {
-//       val model :DeliveryMomentModel = repository.findById(id)[0]
+
         val model :DeliveryMomentModel = repository.getById(id)[0]
         model.isdeleted = true
-//           repository.save(model)
-        DataBaseConnectionConfig().mongoTemplate()?.save(model)
-        DataBaseConnectionConfig().mongo()?.close()
+
+        DataBaseConnectionConfig.mongoTemplate().save(model)
+
     }
 
     fun getByQueryParamanymatch(storeNumber: Long?, streamNumber: Int?, deliveryDateTime: String?, orderDateTime: String?, fillDateTime: String?): List<DeliveryMomentModel> {

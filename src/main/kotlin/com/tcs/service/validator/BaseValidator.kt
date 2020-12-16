@@ -10,8 +10,7 @@ class BaseValidator {
 
     fun validateBaseModel(model: DeliveryMomentModel) {
         with(model) {
-//            require(modId.isEmpty()) { throw InvalidInputException(BAD_PARAMETERS) }
-//            require(modDesc.isEmpty()) { throw InvalidInputException(BAD_PARAMETERS) }
+
         }
     }
 

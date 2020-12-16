@@ -1,7 +1,7 @@
 package com.tcs.service.repository
 
 import com.tcs.service.model.DeliveryMomentModel
-import com.tcs.service.model.LogisticGroupExclusion
+
 
 interface CustomRepository {
 
